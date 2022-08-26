@@ -1,4 +1,11 @@
-local cards = {
+
+local tilesheet = {
+	image = "csn_base_tilesheet.png",
+	width = 5,
+	height = 5,
+}
+
+local card_defs = {
 	{description = "CCCC", amount = 1},
 	{description = "CCCF", amount = 3},
 	{description = "CCCF", amount = 1},
@@ -26,4 +33,9 @@ local cards = {
 	{description = "CRFR", amount = 1},
 }
 
-return cards
+local deck = tile_cards.deck_from_tilesheet(tilesheet, card_defs)
+
+
+for _, v in pairs(deck) do
+	tile_cards.master_deck[#tile_cards.master_deck + 1] = v
+end
