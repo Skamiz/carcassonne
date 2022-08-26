@@ -1,0 +1,2 @@
+random red squares on town tiles to signify buildings
+setting for offseting card edge from node edge
