@@ -61,7 +61,7 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 
 		for k, v in pairs(deck) do
 			if v == tile_cards.starter then
-				player:get_inventory():add_item("main", starter)
+				player:get_inventory():add_item("main", tile_cards.starter)
 				table.remove(deck, k)
 			end
 		end

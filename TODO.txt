@@ -1,2 +1,3 @@
 random red squares on town tiles to signify buildings
 setting for offseting card edge from node edge
+setting for scaling cards to 2x or 3x size

@@ -4,7 +4,7 @@ local modpath = minetest.get_modpath(modname)
 dofile(modpath .. "/cards.lua")
 dofile(modpath .. "/pieces.lua")
 
-tile_cards.starter = "carcassonne:card_25"
+tile_cards.starter = "csn_base:card_25"
 
 local colors = {
 	blue = "#0062a0",
