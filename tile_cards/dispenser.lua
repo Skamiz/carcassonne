@@ -8,9 +8,9 @@ local dispenser_fs = ""
 
 local function get_dispenser_fs(pos)
 	local fs = dispenser_fs
-	local n = 0
+	local n = 1
 	for k, v in pairs(tile_cards.player_colors) do
-		fs = fs .. "image_button[" .. n .. ",2;1,1;tile_cards_color.png^[multiply:" .. v .. ";color_" .. k .. ";" .. #tile_cards.player_pieces .. ";false;false]"
+		fs = fs .. "image_button[" .. ((n - 1) % 5) .. "," .. math.floor((n - 1) / 5) + 1 .. ";1,1;tile_cards_color.png^[multiply:" .. v .. ";color_" .. k .. ";" .. #tile_cards.player_pieces .. ";false;false]"
 		n = n + 1
 	end
 	return fs
