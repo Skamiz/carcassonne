@@ -1,0 +1,4 @@
+# Margin between card edge an node boundary. Measured in pixels
+# Makes it easier to count individual tiles.
+# Recomended vaules are between 0.2 and 0.5
+tile_cards_margin (Card Margin) float 0

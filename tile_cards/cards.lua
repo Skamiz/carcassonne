@@ -1,5 +1,4 @@
--- TODO: get card margin in here
-local margin = 0
+local margin = tonumber(minetest.settings:get("tile_cards_margin")) or 0
 
 function tile_cards.deck_from_tilesheet(tilesheet, card_defs)
 	local modname = minetest.get_current_modname()
