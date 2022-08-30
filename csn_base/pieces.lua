@@ -2,16 +2,15 @@ local modname = minetest.get_current_modname()
 
 local tex = "csn_base_pawn_skin.png"
 local def = {
-	name = "pawn",
+	name = modname .. ":pawn",
 	description = "Pawn",
 	inventory_image = "csn_base_pawn.png",
 	y_offset = 1/16,
-	skin = "csn_base_pawn_skin.png",
 	initial_properties = {
         visual = "cube",
 		visual_size = {x = 2/16, y = 2/16, z = 2/16},
         collisionbox = {-1/16, -1/16, -1/16, 1/16, 1/16, 1/16},
-		textures = {tex, tex, tex, tex, tex, tex},
+		textures = {tex, tex, tex .. "^[colorize:#000:40", tex .. "^[colorize:#000:40", tex .. "^[colorize:#000:20", tex .. "^[colorize:#000:20"},
     },
 }
 

@@ -5,6 +5,7 @@ local dispenser_fs = ""
 	.. "size[5,3,false]"
 	.. "button[0,0;2,1;reset;Reset]"
 	.. "button[3,0;2,1;starter;Starter]"
+	.. "image_button[2,0;1,1;tile_cards_misc.png;misc;]"
 
 local function get_dispenser_fs(pos)
 	local fs = dispenser_fs
@@ -68,6 +69,12 @@ minetest.register_on_player_receive_fields(function(player, formname, fields)
 
 		meta:set_string("deck", minetest.serialize(deck))
 		meta:set_string("infotext", "Cards Remaining: " .. #deck)
+	end
+	if fields.misc then
+		for k, v in pairs(tile_cards.general_pieces) do
+			local itemstack = ItemStack(v)
+			player:get_inventory():add_item("main", itemstack)
+		end
 	end
 	for k, v in pairs(tile_cards.player_colors) do
 		if fields["color_" .. k] then

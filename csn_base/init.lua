@@ -22,7 +22,6 @@ minetest.register_node(modname .. ":scoreboard", {
 	drawtype = "nodebox",
 	visual_scale = 3.0,
 	tiles = {"csn_base_scoreboard.png", "tile_cards_backside.png"},
-	-- inventory_image = "carcassonne_tilesheet_base.png^[sheet:5x5:" .. ((i-1)%5) .. "," .. math.floor((i-1)/5),
 	paramtype = "light",
 	paramtype2 = "facedir",
 	groups = {oddly_breakable_by_hand = 2},

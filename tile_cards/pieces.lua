@@ -17,17 +17,14 @@ function tile_cards.pointed_pos(player, distance, liquids)
 end
 
 function tile_cards.register_piece(def)
-	local modname = minetest.get_current_modname()
-	local name = modname .. ":" .. def.name
-
-	minetest.register_craftitem(name, {
+	minetest.register_craftitem(def.name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
 		on_place = function(itemstack, placer, pointed_thing)
 			local pos = tile_cards.pointed_pos(placer, 5, false)
 			pos.y = pos.y + def.y_offset
 			if not pos then minetest.chat_send_all("raycast is too short, yell at Skamiz to fix it") return end
-			local piece = minetest.add_entity(pos, name)
+			local piece = minetest.add_entity(pos, def.name)
 
 			local meta = itemstack:get_meta()
 			piece:get_luaentity():_set_color(meta:get("color") or "#ffffff")
@@ -37,9 +34,7 @@ function tile_cards.register_piece(def)
 		end,
 	})
 
-	local tex = def.skin
-
-	minetest.register_entity(name, {
+	minetest.register_entity(def.name, {
 		initial_properties = def.initial_properties,
 		on_activate = function(self, staticdata, dtime_s)
 			self.object:set_armor_groups({punch_operable = 1})
@@ -48,7 +43,7 @@ function tile_cards.register_piece(def)
 			end
 		end,
 	    on_punch = function(self, puncher)
-			local itemstack = ItemStack(name)
+			local itemstack = ItemStack(def.name)
 			itemstack:get_meta():set_string("color", self._color)
 			puncher:get_inventory():add_item("main", itemstack)
 			self.object:remove()
